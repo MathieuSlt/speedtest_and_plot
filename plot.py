@@ -37,6 +37,11 @@ def plot(upload_values, download_values, places):
     plt.title('Upload and Download Speeds in Different Places')
     plt.legend()
 
+    # plt.text(mean_upload, y_positions[-1] - bar_width / 2 - bar_offset,
+    #          f"Mean Upload: {mean_upload:.2f} Mbps", color='#734B9D', va='center', ha='left', fontweight='bold')
+    # plt.text(mean_download, y_positions[-1] + bar_width / 2 + bar_offset,
+    #          f"Mean Download: {mean_download:.2f} Mbps", color='#58CAC6', va='center', ha='left', fontweight='bold')
+
     plt.tight_layout()
     plt.show()
 
@@ -48,7 +53,6 @@ def read_file_and_plot():
         download_values = []
         lines = file.readlines()
         for line in lines:
-            # separate the line by whitespace
             line = line.split()
             print(line)
             places.append(int_to_letter(int(line[0])))

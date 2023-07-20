@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+import numpy as np
 import speedtest
 import os
 
@@ -30,9 +32,12 @@ def write_to_file(download_speed, upload_speed):
             print("An error occurred while creating the file.")
 
     with open("speedtest.txt", "r") as file:
-        last_line = file.readlines()[-1]
-        first_letter = last_line[0]
-        number = int(last_line[0]) + 1 if first_letter.isdigit() else 1
+        try:
+            last_line = file.readlines()[-1]
+            first_letter = last_line[0]
+            number = int(last_line[0]) + 1 if first_letter.isdigit() else 1
+        except IndexError:
+            number = 1
 
     with open("speedtest.txt", "a") as file:
         file.write(f"{number} {download_speed:.2f} {upload_speed:.2f}\n")

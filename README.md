@@ -13,3 +13,13 @@ Once you are done you can plot the results with the second script.
 ```bash
 pip install -r requirements.txt
 ```
+
+## Usage
+
+```bash
+python run_speedtest.py
+```
+
+```bash
+python plot.py
+```
